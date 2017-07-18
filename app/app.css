@@ -1,0 +1,9 @@
+#app {
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+body {
+    background-color: #ccc;
+}
