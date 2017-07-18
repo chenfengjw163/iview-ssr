@@ -8,7 +8,7 @@ export default () => {
     return new Vue({
         render () {
             return (
-                <div>
+                <div id="app">
                     hello world!
                 </div>
             )
