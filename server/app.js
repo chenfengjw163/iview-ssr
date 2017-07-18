@@ -16,8 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 const template = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf-8')
 const renderer = createBundleRenderer(serverBundle, {
     template,
-    clientManifest,
-    inject: false
+    clientManifest
 })
 
 app.use('/', (req, res) => {
