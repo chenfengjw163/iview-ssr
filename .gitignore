@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+app/build/bundle
+server/bundle
+node_modules/
+
+*.log
+.eslintcache
+.stylelintcache
+app/bundle
+public/
+.vscode/
+.happypack/
+build/dll/
