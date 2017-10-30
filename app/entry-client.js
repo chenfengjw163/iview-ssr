@@ -1,5 +1,9 @@
 import createApp from './app'
 
-createApp().then(vue => {
-    vue.$mount('#app')
+const {app, router} = createApp()
+
+router.onReady(() => {
+    app.$mount('#app')
 })
+
+module.hot.accept()

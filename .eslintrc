@@ -13,6 +13,6 @@
     "rules": {
         "camelcase": "off",
         "max-len": "off",
-        "indent": ["error", 4],
+        "indent": ["error", 4]
     }
 }
