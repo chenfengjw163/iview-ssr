@@ -1,15 +1,15 @@
 <template>
     <div>
-        edit
+        <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'edit'
+    name: 'Layout'
 }
 </script>
 
 <style>
-  
+
 </style>

@@ -34,25 +34,29 @@ if (isProd) {
     })
 }
 
-const render = (req, res) => {
+const render = (req, res, next) => {
     let context = {
         req,
         res,
         url: req.url
     }
-    renderer.renderToString(context, (err, html) => {
-        if (err) {
-            console.error('error:', err)
-        }
-        return res.end(html)
-    })
+    try {
+        renderer.renderToString(context, (err, html) => {
+            if (err) {
+                console.error('error:', err)
+            }
+            return res.end(html)
+        })
+    } catch (err) {
+        next()
+    }
 }
 
-app.use('/', isProd ? render : (req, res) => {
+app.use('/', isProd ? render : (req, res, next) => {
     return realyPromise.then(() => {
         render(req, res)
     })
 })
 app.listen(3001, () => {
-    console.log('start')
+    console.log('start width 3001')
 })

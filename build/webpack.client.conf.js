@@ -19,7 +19,7 @@ let webpackConfig = merge(baseConfig, {
             name: "manifest",
             minChunks: Infinity
         }),
-        new VueSSRClientPlugin(),
+        new VueSSRClientPlugin()
     ]
 });
 module.exports = webpackConfig;

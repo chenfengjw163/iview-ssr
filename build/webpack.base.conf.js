@@ -17,8 +17,12 @@ const webpackConfig = {
         : '#cheap-module-source-map',
     resolve: {
         extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'create-api': 'common/create-api'
+        },
         modules: [
-            'node_modules'
+            'node_modules',
+            path.join(__dirname, '../app')
         ]
     },
     module: {
@@ -42,10 +46,22 @@ const webpackConfig = {
                         opetions: {
                             sourceMap: true
                         }
-                    }
+                    },
+                    extractCSS: true
                 }
             }, {
                 test: /\.scss$/,
+                loader: ExtractTextPlugin.extract({
+                    use: {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: postcssConfig()
+                        }
+                    },
+                    fallback: 'vue-style-loader'
+                })
+            }, {
+                test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     use: {
                         loader: 'postcss-loader',
@@ -79,6 +95,16 @@ const webpackConfig = {
     ]
 }
 
+if (isProd) {
+    vuxLoader.merge(webpackConfig, {
+        plugins: [{
+            name: 'duplicate-style'
+        }]
+    });
+}
+
 module.exports = vuxLoader.merge(webpackConfig, {
-    plugins: ['vux-ui']
+    plugins: [{
+        name: 'vux-ui'
+    }]
 });

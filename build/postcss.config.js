@@ -8,6 +8,6 @@ module.exports = () => {
         postImport({}),
         precss(),
         autoprefixer(),
-        cssnano()
+        cssnano({safe: true})
     ]
 }
