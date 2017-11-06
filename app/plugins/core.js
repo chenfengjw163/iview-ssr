@@ -1,33 +1,33 @@
 /**
  * 插件
  */
-import components from '../components'
-import _ from 'lodash/core'
+import components from '../components';
+import _ from 'lodash/core';
 
 export default {
-    loadGlobalComponents (Vue) {
+    loadGlobalComponents(Vue) {
         _.each(components, componentModules => {
             _.each(componentModules, component => {
                 if (component.length) {
-                    Vue.component(component[0], component[1])
+                    Vue.component(component[0], component[1]);
                 } else {
-                    Vue.component(component.name, component)
+                    Vue.component(component.name, component);
                 }
-            })
-        })
+            });
+        });
     },
-    defineVueProp (Vue) {
+    defineVueProp(Vue) {
         Vue.prop = (key, value) => {
-            Vue[`$${key}`] = Vue.prototype[`$${key}`] = value
-        }
+            Vue[`$${key}`] = Vue.prototype[`$${key}`] = value;
+        };
     },
-    install (Vue) {
+    install(Vue) {
         // 定义Vue全局属性
-        this.defineVueProp(Vue)
+        this.defineVueProp(Vue);
 
         // 加载核心组件
-        this.loadGlobalComponents(Vue)
+        this.loadGlobalComponents(Vue);
 
         // 附加Vue原型属性
     }
-}
+};

@@ -6,4 +6,4 @@ export default [{
     path: '/my',
     name: 'my',
     component: () => import(/* webpackChunkName: "my" */ './my')
-}]
+}];

@@ -7,4 +7,4 @@ export default [{
     path: '/:id',
     name: 'news-detail',
     component: () => import(/* webpackChunkName: "news-detail" */ './news-detail')
-}]
+}];

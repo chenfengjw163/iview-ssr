@@ -1,7 +1,7 @@
-import news from './news'
-import home from './home'
+import news from './news';
+import home from './home';
 
 export default {
     news,
     home
-}
+};
